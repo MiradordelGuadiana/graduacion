@@ -1,0 +1,126 @@
+/* Configuraciones generales y desplazamiento suave */
+html {
+    scroll-behavior: smooth;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fff0f5; /* Un rosa muy suave y romántico */
+    color: #4a4a4a;
+}
+
+/* Estilos de cada pantalla (sección) */
+.seccion {
+    min-height: 100vh; /* Ocupa toda la pantalla */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.inicio {
+    background: linear-gradient(135deg, #ffb6c1, #ffc0cb);
+    color: white;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: #e83e8c;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+
+/* Estilo para las fotos */
+.foto {
+    max-width: 100%;
+    width: 400px;
+    border-radius: 20px; /* Bordes redondeados */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Sombra elegante */
+    margin-top: 20px;
+    transition: transform 0.3s ease;
+}
+
+.foto:hover {
+    transform: scale(1.05); /* Efecto de zoom suave al pasar el ratón */
+}
+
+/* Botones y enlaces */
+.flecha {
+    font-size: 3rem;
+    text-decoration: none;
+    margin-top: 30px;
+    animation: saltar 2s infinite; /* Animación para que la flecha rebote */
+}
+
+button {
+    background-color: #e83e8c;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(232, 62, 140, 0.4);
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #d81b60;
+}
+
+/* --- Clases para la animación con JavaScript --- */
+.oculta {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease-out;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animación de la flecha */
+@keyframes saltar {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-20px); }
+    60% { transform: translateY(-10px); }
+}
+
+/* --- Efecto de Explosión de Flores y Corazones --- */
+.particula {
+    position: fixed;
+    font-size: 2rem; /* Tamaño de los emojis */
+    z-index: 9999; /* Para que aparezcan por encima de todo */
+    pointer-events: none; /* Para que no estorben si hace clic sobre ellos */
+    animation: volar 2.5s ease-out forwards;
+}
+
+/* Esta animación hace que salgan volando en direcciones aleatorias y desaparezcan */
+@keyframes volar {
+    0% {
+        transform: translate(0, 0) scale(0.5);
+        opacity: 1;
+    }
+    100% {
+        /* Las variables --tx y --ty se calculan en JavaScript */
+        transform: translate(var(--tx), var(--ty)) scale(1.5) rotate(var(--rot));
+        opacity: 0;
+    }
+}
